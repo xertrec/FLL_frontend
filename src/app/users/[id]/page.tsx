@@ -15,7 +15,7 @@ function getRecordHref(recordUri: string) {
     const segments = sanitizedUri.split("/").filter(Boolean);
     const recordId = segments.at(-1);
 
-    return recordId ? `/records/${recordId}` : "/records";
+    return recordId ? `/records/${recordId}` : recordUri;
 }
 
 export default async function UsersPage(props: Readonly<UsersPageProps>) {
