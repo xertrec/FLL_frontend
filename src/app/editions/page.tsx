@@ -31,11 +31,15 @@ function EditionCard({ edition }: Readonly<{ edition: Edition }>) {
     );
 
     if (!href) {
-        return content;
+        return (
+            <div className="list-card block h-full pl-7">
+                {content}
+            </div>
+        );
     }
 
     return (
-        <Link className="block hover:text-primary" href={href}>
+        <Link className="list-card block h-full pl-7 hover:text-primary" href={href}>
             {content}
         </Link>
     );
@@ -82,7 +86,7 @@ export default async function EditionsPage() {
 
                 <ul className="list-grid">
                     {editions.map((edition, index) => (
-                        <li key={edition.uri ?? index} className="list-card pl-7">
+                        <li key={edition.uri ?? index}>
                             <EditionCard edition={edition} />
                         </li>
                     ))}
